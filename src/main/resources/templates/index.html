@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <title>Hub Users</title>
+</head>
+<body>
+	<table>
+		<tr>
+			<th>Last Name</th>
+			<th>First Name</th>
+		</tr>
+		<tr th:each="user : ${users}">
+		    <td th:text="${user.lastName}">Last Name</td>
+		    <td th:text="${user.firstName}">First Name</td>
+		</tr>
+	</table>
+</body>
+</html>
