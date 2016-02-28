@@ -16,3 +16,5 @@ hs_err_pid*
 .settings/
 target/
 src/main/resources/config/application.properties
+node/
+src/main/resources/static/node_modules/
