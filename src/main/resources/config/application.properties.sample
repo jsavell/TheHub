@@ -1,3 +1,9 @@
+spring.datasource.url=jdbc:postgresql://localhost:5432/the_hub
+spring.datasource.username=
+spring.datasource.password=
+spring.jpa.database-platform=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.generate-ddl=true
+
 spring.data.rest.base-path=/api
 
 spring.social.twitter.appId=

@@ -64,6 +64,11 @@
         	<artifactId>spring-security-web</artifactId>
         	<version>4.0.4.RELEASE</version>
     	</dependency>
+		<dependency>
+		    <groupId>org.postgresql</groupId>
+		    <artifactId>postgresql</artifactId>
+		    <version>9.4.1208.jre7</version>
+		</dependency>
     </dependencies>
 
     <properties>

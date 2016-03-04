@@ -6,7 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class User {
+public class HubUser {
 	@Id
 	@GeneratedValue
 	private Long id;
@@ -15,9 +15,9 @@ public class User {
 	
 	private String firstName;
 	
-	private User() {};
+	private HubUser() {};
 	
-	public User(String lastName, String firstName) {
+	public HubUser(String lastName, String firstName) {
 		this.setLastName(lastName);
 		this.setFirstName(firstName);
 	}
