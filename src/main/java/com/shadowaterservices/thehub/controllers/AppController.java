@@ -19,7 +19,6 @@ public class AppController {
     @RequestMapping("/")
     public ModelAndView index() {
         ModelAndView mav = new ModelAndView("index");
-        mav.addObject("users", userRepository.findAll());
         return mav;
     }
     

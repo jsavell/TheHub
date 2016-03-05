@@ -1,21 +1,18 @@
 package com.shadowaterservices.thehub.data.entities;
 
 
-import java.util.Collection;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.User;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class HubUser extends User {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 6002884806320491461L;
+public class HubUser {
+	public static final PasswordEncoder PASSWORD_ENCODER = new BCryptPasswordEncoder();
 
 	@Id
 	@GeneratedValue
@@ -23,14 +20,23 @@ public class HubUser extends User {
 	
 	private String username;
 	
+	@JsonIgnore
+	private String password;
+	
 	private String lastName;
 	
 	private String firstName;
 	
-	public HubUser(String username, String password, Collection<GrantedAuthority> authorities, String lastName, String firstName) {
-		super(username,password,authorities);
+	private String[] roles;
+	
+	public HubUser() {};
+	
+	public HubUser(String username, String password, String firstName, String lastName, String... roles) {
+		this.setUsername(username);
+		this.setPassword(password);
 		this.setLastName(lastName);
 		this.setFirstName(firstName);
+		this.roles = roles;
 	}
 
 	public Long getId() {
@@ -40,6 +46,21 @@ public class HubUser extends User {
 	public void setId(Long id) {
 		this.id = id;
 	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = PASSWORD_ENCODER.encode(password);	}
 
 	public String getFirstName() {
 		return firstName;
@@ -56,4 +77,14 @@ public class HubUser extends User {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+
+	public String[] getRoles() {
+		return roles;
+	}
+
+	public void setRoles(String[] roles) {
+		this.roles = roles;
+	}
+	
+	
 }

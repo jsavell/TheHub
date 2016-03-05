@@ -9,3 +9,5 @@ spring.data.rest.base-path=/api
 spring.social.twitter.appId=
 spring.social.twitter.appSecret=
 
+user.default.password=
+
