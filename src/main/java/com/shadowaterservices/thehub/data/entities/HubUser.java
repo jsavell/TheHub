@@ -1,23 +1,34 @@
 package com.shadowaterservices.thehub.data.entities;
 
 
+import java.util.Collection;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.User;
+
 @Entity
-public class HubUser {
+public class HubUser extends User {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6002884806320491461L;
+
 	@Id
 	@GeneratedValue
 	private Long id;
+	
+	private String username;
 	
 	private String lastName;
 	
 	private String firstName;
 	
-	private HubUser() {};
-	
-	public HubUser(String lastName, String firstName) {
+	public HubUser(String username, String password, Collection<GrantedAuthority> authorities, String lastName, String firstName) {
+		super(username,password,authorities);
 		this.setLastName(lastName);
 		this.setFirstName(firstName);
 	}

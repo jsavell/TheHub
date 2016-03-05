@@ -6,4 +6,6 @@ import com.shadowaterservices.thehub.data.entities.HubUser;
 
 public interface HubUserRepository extends CrudRepository<HubUser, Long> {
 
+	HubUser findByUsername(String username);
+
 }
